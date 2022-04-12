@@ -385,6 +385,10 @@ dl.bc-notes-list {
 
 @media screen and (min-width: $screen-md) {
   .bc-table {
+    td {
+      height: 2rem;
+    }
+
     .bc-support button,
     .bcd-cell-text-wrapper {
       height: 100%;
