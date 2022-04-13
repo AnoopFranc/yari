@@ -4,6 +4,10 @@
 @use "../ui/molecules/grids/grids.scss" as *;
 @use "../ui/base/typography" as *;
 
+:root {
+  --sticky-header-height: var(--main-document-header-height);
+}
+
 .main-document-header-container {
   position: sticky;
   top: 0;
@@ -229,6 +233,7 @@
 b,
 strong {
   font-weight: var(--font-body-strong-weight);
+  letter-spacing: 0.02rem;
 }
 
 table {
