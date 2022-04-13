@@ -40,6 +40,9 @@
   }
 
   .tile-tag {
+    color: var(--text-primary);
+    font-weight: 500;
+
     &:hover {
       text-decoration: underline;
     }

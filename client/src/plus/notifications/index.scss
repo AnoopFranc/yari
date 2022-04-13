@@ -7,7 +7,11 @@
 
 .plus-header h1 {
   margin-bottom: 1rem;
-  font: var(--type-heading-h4-font-size);
+  font: var(--type-heading-h4-font-size-mobile);
+
+  @media screen and (min-width: $screen-md) {
+    font: var(--type-heading-h4-font-size);
+  }
 }
 
 .notification-list {

@@ -247,7 +247,6 @@ const CellText = React.memo(
               <span className="bc-support-level">{title}</span>
             </abbr>
           </span>
-          <CellIcons support={support} />
         </div>
         <div className="bcd-cell-text-copy">
           <span className="bc-browser-name">{browser.name}</span>
@@ -260,6 +259,7 @@ const CellText = React.memo(
             {label}
           </span>
         </div>
+        <CellIcons support={support} />
       </div>
     );
   }
@@ -281,14 +281,17 @@ function CellIcons({ support }: { support: bcd.SupportStatement | undefined }) {
   if (!supportItem) {
     return null;
   }
-  return (
+  return isOnlySupportedWithPrefix(support) ||
+    hasNoteworthyNotes(supportItem) ||
+    isOnlySupportedWithAltName(support) ||
+    supportItem.flags ? (
     <div className="bc-icons">
       {isOnlySupportedWithPrefix(support) && <Icon name="prefix" />}
       {hasNoteworthyNotes(supportItem) && <Icon name="footnote" />}
       {isOnlySupportedWithAltName(support) && <Icon name="altname" />}
       {supportItem.flags && <Icon name="disabled" />}
     </div>
-  );
+  ) : null;
 }
 
 function FlagsNote({

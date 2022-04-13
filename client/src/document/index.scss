@@ -8,15 +8,6 @@
   position: sticky;
   top: 0;
   z-index: var(--z-index-top);
-
-  @media screen and (min-width: $screen-md) {
-    top: var(--top-navigation-offset);
-    transition: top 0.5s ease-in-out;
-
-    &:hover {
-      top: 0;
-    }
-  }
 }
 
 .main-page-content {
@@ -344,6 +335,10 @@ h1 {
   font: var(--type-heading-h1);
   margin-bottom: 2rem;
   word-break: break-word;
+
+  @media screen and (min-width: $screen-md) {
+    font: var(--type-heading-h1);
+  }
 }
 
 h2 {
@@ -481,9 +476,13 @@ pre {
   margin-bottom: 1rem;
 
   h3 {
-    font-size: var(--type-heading-h4-font-size);
+    font-size: var(--type-heading-h4-font-size-mobile);
     font-weight: var(--font-body-strong-weight);
     padding-left: 1rem;
+
+    @media screen and (min-width: $screen-md) {
+      font: var(--type-heading-h4-font-size);
+    }
   }
 
   ul {

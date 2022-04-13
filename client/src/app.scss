@@ -1,3 +1,4 @@
+@use "./ui/vars" as *;
 @use "./ui/base/mdn";
 @use "./ui/base/typography";
 @use "./ui/base/reset";
@@ -40,17 +41,23 @@
   --type-smaller-font-size: 0.833rem;
   --type-tiny-font-size: 0.694rem;
 
+  /* based on the following type-scale https://type-scale.com/?size=16&scale=1.125&text=MDN%20Web%20Docs&font=Inter&fontweight=400&bodyfont=body_font_default&bodyfontweight=400&lineheight=1.75&backgroundcolor=%23ffffff&fontcolor=%23000000&preview=false */
+  --type-heading-h1-font-size-mobile: 1.802rem;
+  --type-heading-h2-font-size-mobile: 1.602rem;
+  --type-heading-h3-font-size-mobile: 1.424rem;
+  --type-heading-h4-font-size-mobile: 1.266rem;
+
   --type-emphasis-m: var(--font-body-strong-weight)
     var(--type-smaller-font-size) / 1.23 var(--font-body);
   --type-label-s: 600 var(--type-tiny-font-size) / 1.2 var(--font-heading);
 
-  --type-heading-h1: 800 var(--type-heading-h1-font-size) /
+  --type-heading-h1: 600 var(--type-heading-h1-font-size-mobile) /
     var(--heading-line-height) var(--font-heading);
-  --type-heading-h2: 600 var(--type-heading-h2-font-size) /
+  --type-heading-h2: 500 var(--type-heading-h2-font-size-mobile) /
     var(--heading-line-height) var(--font-heading);
-  --type-heading-h3: 300 var(--type-heading-h3-font-size) /
+  --type-heading-h3: 300 var(--type-heading-h3-font-size-mobile) /
     var(--heading-line-height) var(--font-heading);
-  --type-heading-h4: 400 var(--type-heading-h4-font-size) /
+  --type-heading-h4: 400 var(--type-heading-h4-font-size-mobile) /
     var(--heading-line-height) var(--font-heading);
   --type-heading-h5: 400 var(--type-heading-h5-font-size) /
     var(--heading-line-height) var(--font-heading);
@@ -82,6 +89,19 @@
   --sticky-header-height: 0;
   --top-nav-height: 4rem;
   --icon-size: 1rem;
+}
+
+@media screen and (min-width: $screen-md) {
+  :root {
+    --type-heading-h1: 600 var(--type-heading-h1-font-size) /
+      var(--heading-line-height) var(--font-heading);
+    --type-heading-h2: 500 var(--type-heading-h2-font-size) /
+      var(--heading-line-height) var(--font-heading);
+    --type-heading-h3: 300 var(--type-heading-h3-font-size) /
+      var(--heading-line-height) var(--font-heading);
+    --type-heading-h4: 400 var(--type-heading-h4-font-size) /
+      var(--heading-line-height) var(--font-heading);
+  }
 }
 
 :target {
@@ -199,6 +219,7 @@ u {
 
 .plus .dark,
 .plus {
+  --background-toc-active: var(--plus-accent-background-color);
   --text-link: var(--plus-accent-color);
   --category-color: var(--plus-accent-color);
   --category-color-background: var(--plus-accent-background-color);
@@ -207,36 +228,42 @@ u {
 }
 
 .category-html {
+  --background-toc-active: var(--html-accent-background-color);
   --category-color: var(--html-accent-color);
   --category-color-background: var(--html-accent-background-color);
   --mark-color: var(--html-mark-color);
 }
 
 .category-css {
+  --background-toc-active: var(--css-accent-background-color);
   --category-color: var(--css-accent-color);
   --category-color-background: var(--css-accent-background-color);
   --mark-color: var(--css-mark-color);
 }
 
 .category-javascript {
+  --background-toc-active: var(--js-accent-background-color);
   --category-color: var(--js-accent-color);
   --category-color-background: var(--js-accent-background-color);
   --mark-color: var(--js-mark-color);
 }
 
 .category-http {
+  --background-toc-active: var(--http-accent-background-color);
   --category-color: var(--http-accent-color);
   --category-color-background: var(--http-accent-background-color);
   --mark-color: var(--http-mark-color);
 }
 
 .category-api {
+  --background-toc-active: var(--apis-accent-background-color);
   --category-color: var(--apis-accent-color);
   --category-color-background: var(--apis-accent-background-color);
   --mark-color: var(--apis-mark-color);
 }
 
 .category-learn {
+  --background-toc-active: var(--learn-accent-background-color);
   --category-color: var(--learn-accent-color);
   --category-color-background: var(--learn-accent-background-color);
   --mark-color: var(--api-mark-color);
