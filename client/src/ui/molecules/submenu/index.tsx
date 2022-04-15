@@ -13,10 +13,11 @@ type SubmenuItem = {
   dot?: string;
 };
 
-type MenuEntry = {
+export type MenuEntry = {
   id: string;
   items: SubmenuItem[];
   label: string;
+  to?: string;
 };
 
 export const Submenu = ({

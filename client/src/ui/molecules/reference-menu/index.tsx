@@ -1,6 +1,5 @@
 import { useLocale } from "../../../hooks";
-import InternalLink from "../../atoms/internal-link";
-import { Submenu } from "../submenu";
+import { Menu } from "../menu";
 
 import "./index.scss";
 
@@ -8,8 +7,9 @@ export const ReferenceMenu = ({ visibleSubMenuId, toggleMenu }) => {
   const locale = useLocale();
 
   const menu = {
-    label: "References",
     id: "references",
+    label: "References",
+    to: `/${locale}/docs/Web`,
     items: [
       {
         description: "Web technology reference for developers",
@@ -69,34 +69,8 @@ export const ReferenceMenu = ({ visibleSubMenuId, toggleMenu }) => {
       },
     ],
   };
+
   const isOpen = visibleSubMenuId === menu.id;
 
-  return (
-    <li key={menu.id} className="top-level-entry-container">
-      <button
-        type="button"
-        id={`${menu.id}-button`}
-        className="top-level-entry menu-toggle"
-        aria-controls={menu.id}
-        aria-haspopup="menu"
-        aria-expanded={isOpen || undefined}
-        onClick={() => {
-          toggleMenu(menu.id);
-        }}
-      >
-        {menu.label}
-      </button>
-
-      <InternalLink
-        to={`/${locale}/docs/Web`}
-        className="top-level-entry"
-        // @ts-ignore
-        onClick={() => document?.activeElement?.blur()}
-      >
-        {menu.label}
-      </InternalLink>
-
-      <Submenu submenuId={menu.id} menuEntry={menu} defaultHidden={!isOpen} />
-    </li>
-  );
+  return <Menu menu={menu} isOpen={isOpen} toggle={toggleMenu} />;
 };
