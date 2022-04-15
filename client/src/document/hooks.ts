@@ -226,6 +226,11 @@ export function usePersistFrequentlyViewed(doc: Doc | undefined) {
  */
 export function useStickyHeaderHeight() {
   function determineStickyHeaderHeight(): number {
+    if (typeof getComputedStyle !== "function") {
+      // SSR.
+      return 0;
+    }
+
     const styles = getComputedStyle(document.documentElement);
     const stickyHeaderHeight = styles
       .getPropertyValue("--sticky-header-height")
