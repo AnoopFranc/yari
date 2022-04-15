@@ -8,13 +8,16 @@ interface MenuProps {
 }
 
 export const Menu = ({ menu, isOpen, toggle }: MenuProps) => {
+  const buttonId = `${menu.id}-button`;
+  const submenuId = `${menu.id}-menu`;
+
   return (
     <li key={menu.id} className="top-level-entry-container">
       <button
         type="button"
-        id={`${menu.id}-button`}
+        id={buttonId}
         className="top-level-entry menu-toggle"
-        aria-controls={menu.id}
+        aria-controls={submenuId}
         aria-haspopup="menu"
         aria-expanded={isOpen}
         onClick={() => {
@@ -35,7 +38,7 @@ export const Menu = ({ menu, isOpen, toggle }: MenuProps) => {
         </InternalLink>
       )}
 
-      <Submenu submenuId={menu.id} menuEntry={menu} defaultHidden={!isOpen} />
+      <Submenu submenuId={submenuId} menuEntry={menu} defaultHidden={!isOpen} />
     </li>
   );
 };
